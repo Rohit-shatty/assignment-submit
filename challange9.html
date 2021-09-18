@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-2</title>
+    <style>
+        /*this is an parent cls for all the child classes*/
+        .container
+        {  
+            display: grid;
+            grid-gap:15px;
+            grid-template-columns:1fr 3fr;
+        }
+        
+        .item{
+            display: grid;
+            box-shadow: 10px 10px 6px 0 gray,0 6px 20px 0 gray;
+            color: whitesmoke;
+            font-size: 20px;
+            padding: 20px;
+            background-color:darkred;
+            border: 3px solid rgb(197, 36, 63);
+        }
+        /*this is an child cls of container cls the css of nested cls will apply in all the child classes*/
+        .nested{
+            display: grid;
+            gap: 15px;
+        }
+        /*this cls is used here only fo applying css in middle section of header and footer which is (artical & ads)*/  
+        .art{
+            display:grid;
+            grid-gap:15px;
+            grid-template-columns:3fr 1fr ;
+            /*here we use this grid auto for expand the art cls in ro direction*/
+            grid-auto-rows: 460px;
+        }
+        /*these are id for head and footer that we can apply css particularly on both*/
+        #head,#foot{
+            grid-auto-rows: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!--its a main cls for all the child classes-->
+    <div class="container">
+        <!--we made 2 nested this is an 1st nested cls only for nav-->
+        <div class="nested">
+            <div class="item " id="nav">Nav</div>
+        </div>
+        <!--this is an 2nd nested cls which contains all other remaining boxes-->
+        <div class="nested">
+            <div class="item" id="head">Header</div>
+            <!--we need to apply some css in (artical or ads box) thats why we made this cls -->
+            <div class="art">
+                <div class="item ">Artical</div>
+                <div class="item">Ads</div>
+            </div>
+            <div class="item" id="foot">Footer</div>
+        <!--2nd nested wil ends here-->
+        </div>
+    <!--main cls ends here .conatainer-->
+    </div>
+</body>
+</html>
